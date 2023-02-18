@@ -58,7 +58,7 @@ class PlayerEntryScreen:
 
     def submit(self):
         # Add code here to handle the submission of player names
-        for name_entry in self.name_entries:
+        for name_entry in self.first_name_entries:
             print(name_entry.get())
 
     def drive(self):
