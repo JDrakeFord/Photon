@@ -6,9 +6,9 @@ class PlayerEntryScreen:
         self.master.title("Player Entry")
 
         # Create player name label and entry widget
-        self.team_label1 = tk.Label(master, text="Red Team")
-        self.team_label1.grid(row=0, column=1, padx=10, pady=10)
-        self.team_label2 = tk.Label(master, text="Green Team")
+        self.team_label1 = tk.Label(master, text="Red Team", fg="red")
+        self.team_label1.grid(row=0, column=0, padx=10, pady=10)
+        self.team_label2 = tk.Label(master, text="Green Team", fg="green")
         self.team_label2.grid(row=0, column=6, padx=10, pady=10)
 
         self.name_labels = []
