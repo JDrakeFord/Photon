@@ -17,6 +17,7 @@ class PlayerEntryScreen:
             self.code_name_entries[index].insert(0, codename)
 
     def submit(self):
+        self.success_text.set("")
         for i in range(0, 20):
             if (not (self.first_name_entries[i].get() and self.last_name_entries[i].get()
                      and self.code_name_entries[i].get()))\
