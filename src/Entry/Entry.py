@@ -34,7 +34,7 @@ class PlayerEntryScreen:
                     and bool(self.code_name_entries[i].get()):
                 db.newPlayer(self.first_name_entries[i].get(), self.last_name_entries[i].get(),
                              self.code_name_entries[i].get())
-                self.success_text.set("Players created successfully!")
+            self.success_text.set("Players created successfully!")
 
     def __init__(self, master):
         self.master = master
