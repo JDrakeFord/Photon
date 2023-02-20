@@ -18,7 +18,7 @@ class PlayerEntryScreen:
 
     def submit(self):
         self.success_text.set("")
-        for i in range(0, 20):
+        for i in range(0, 40):
             if (not (self.first_name_entries[i].get() and self.last_name_entries[i].get()
                      and self.code_name_entries[i].get()))\
                     and (self.first_name_entries[i].get() or self.last_name_entries[i].get()
@@ -27,7 +27,7 @@ class PlayerEntryScreen:
                 return 0
             else:
                 self.error_text.set("")
-        for i in range(0, 20):
+        for i in range(0, 40):
             if not db.checkIfPlayerExists(self.first_name_entries[i].get(), self.last_name_entries[i].get())\
                     and bool(self.first_name_entries[i].get()) \
                     and bool(self.last_name_entries[i].get()) \
