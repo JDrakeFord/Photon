@@ -1,0 +1,7 @@
+The splash screen displays while the program opens and is closed
+when the player entry screen loads. This program has been tested
+to ensure that players and their codenames are copied to the database.
+Player names can be composed of strings, numbers, and include spaces.
+When the player entry screen is blank and a player is stored in the database,
+the program will query the database once the names are filled in and autofill
+the player's codename.
