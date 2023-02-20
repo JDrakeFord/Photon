@@ -11,7 +11,6 @@ class PlayerEntryScreen:
             index = str(1)
         index = int(index) - 1
         index //= 3
-        print(index)
         if db.checkIfPlayerExists(self.first_name_entries[index].get(), self.last_name_entries[index].get()):
             codename = db.getCodename(self.first_name_entries[index].get(), self.last_name_entries[index].get())
             self.code_name_entries[index].delete(0, tk.END)
