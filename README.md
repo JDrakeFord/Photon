@@ -1,5 +1,6 @@
 # PhotonLaserTag
-This application is only known to work with Python ver. 3.9. ver 3.10 and 3.11 are known not to work.
+Only Python 3.9 is supported for this project. Python 3.11 is known to break the program
+This is written and designed for windows, but may work in other Operating Systems. YMMV
 
 
 Prerequisites to run: 
@@ -9,7 +10,16 @@ Prerequisites to run:
 
 This application creates and shows a splash screen and player entry screen for a laser tag video game. 
 When a player is entered into the player entry screen and the submit button is clicked, 
-that player entry is sent to and stored in our supabase database.
+that player entry is sent to and stored in our supabase database. If you try to change the codename for 
+a player already in the database, the program will refil
 
 If a player already exists in the database, 
 our program will autofill the codename if given an existing first and last name.
+
+## Installation
+1. Install Python 3.9
+2. Clone the "Photon" repository
+3. Run the following commands in the terminal (in whatever environment you are going to run the program in)
+    pip install pillow
+    pip install supabase
+4. Run "Application.py" *IN PYTHON 3.9*
