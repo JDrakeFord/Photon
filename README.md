@@ -1,5 +1,6 @@
 # PhotonLaserTag
-This application is only known to work with Python ver. 3.9. ver 3.10 and 3.11 are known not to work.
+This application is only known to work with Python ver. 3.9. 
+ver 3.10 and 3.11 are known not to work.
 
 
 Prerequisites to run: 
