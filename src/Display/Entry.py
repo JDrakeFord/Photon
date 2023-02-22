@@ -1,3 +1,4 @@
+import threading
 import tkinter as tk
 from src.Util.Globals import *
 import src.Util.Database as db
@@ -17,17 +18,17 @@ class PlayerEntryScreen:
             self.code_name_entries[index].insert(0, codename)
 
     def submit(self):
-        self.success_text.set("")
+        self.error_text.set("")
         for i in range(0, 40):
             if (not (self.first_name_entries[i].get() and self.last_name_entries[i].get()
                      and self.code_name_entries[i].get()))\
                     and (self.first_name_entries[i].get() or self.last_name_entries[i].get()
                          or self.code_name_entries[i].get()):
+                self.success_text.set("")
                 self.error_text.set("At least one of the players has incomplete information.")
                 return 0
-            else:
-                self.error_text.set("")
         for i in range(0, 40):
+            self.success_text.set("Submitting players...")
             if not db.checkIfPlayerExists(self.first_name_entries[i].get(), self.last_name_entries[i].get())\
                     and bool(self.first_name_entries[i].get()) \
                     and bool(self.last_name_entries[i].get()) \
@@ -35,6 +36,9 @@ class PlayerEntryScreen:
                 db.newPlayer(self.first_name_entries[i].get(), self.last_name_entries[i].get(),
                              self.code_name_entries[i].get())
             self.success_text.set("Players created successfully!")
+
+    def submitThread(self):
+        threading.Thread(target=self.submit).start()
 
     def __init__(self, master):
         self.master = master
@@ -98,7 +102,7 @@ class PlayerEntryScreen:
             self.code_name_entries.append(code_name_entry2)
 
             # Create submit button
-            submit_button = tk.Button(self.master, text="Submit", command=self.submit)
+            submit_button = tk.Button(self.master, text="Submit", command=self.submitThread)
             submit_button.grid(row=21, column=3, padx=10, pady=10)
 
             # Create error field
