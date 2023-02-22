@@ -1,7 +1,6 @@
 from tkinter import *
 from PIL import ImageTk, Image
 
-#TODO: Fix the image and make it resize with the window
 
 def drive():
     # Creates the screen and sets the size

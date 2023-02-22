@@ -1,9 +1,10 @@
-import Splash
+from src.Display import Splash
+
 Splash.drive()
 
 # Drive player entry screen
 from tkinter import Tk
-from src.Entry.Entry import PlayerEntryScreen
+from src.Display.Entry import PlayerEntryScreen
 
 
 def main():

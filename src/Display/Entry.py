@@ -1,6 +1,6 @@
 import tkinter as tk
-from src.Globals import *
-import src.Database as db
+from src.Util.Globals import *
+import src.Util.Database as db
 
 
 class PlayerEntryScreen:
