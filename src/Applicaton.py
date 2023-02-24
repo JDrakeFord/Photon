@@ -1,6 +1,5 @@
 from src.Display import Splash
 
-Splash.drive()
 
 # Drive player entry screen
 from tkinter import Tk
@@ -9,19 +8,15 @@ from src.Display.Action import PlayerActionScreen
 
 
 def main():
-    # create the Tk object
+    # Splash creates itself during drive() because it is so simple
+    Splash.drive()
 
-    root = Tk()
+    # We create the PlayerEntryScreen object and call drive(). *It will create its own master*
+    player_entry_screen = PlayerEntryScreen()
+    player_entry_screen.drive()
 
-    # create an instance of PlayerEntryScreen, passing the Tk object as the master
-    #player_entry_screen = PlayerEntryScreen(root)
-
-    # call the drive() method of the instance to start the tkinter application
-    #player_entry_screen.drive()
-
-    screen = PlayerActionScreen(root, 'Red team', 'Green team')
-    screen.pack()
-    root.mainloop()
+    # player_action_screen = PlayerActionScreen('Red team', 'Green team')
+    # player_action_screen.drive()
 
 if __name__ == '__main__':
     main()
