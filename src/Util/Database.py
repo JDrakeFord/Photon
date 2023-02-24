@@ -12,6 +12,13 @@ def getCodename(first_name, last_name) -> str:
     r = supabase.from_('player').select("codename").eq('first_name', first_name).eq('last_name', last_name).execute()
     return r.data[0]['codename']
 
+def getFirstName() -> str:
+    r = supabase.from_('player').select("first_name").execute()
+    return r.data[0]['first_name']
+
+def getLastName() -> str:
+    r = supabase.from_('player').select("last_name").execute()
+    return r.data[0]['last_name']
 
 def newPlayer(first_name, last_name, codename):
     r = supabase.from_('player').insert({

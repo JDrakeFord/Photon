@@ -35,6 +35,7 @@ class PlayerEntryScreen:
                 db.newPlayer(self.first_name_entries[i].get(), self.last_name_entries[i].get(),
                              self.code_name_entries[i].get())
             self.success_text.set("Players created successfully!")
+            return 1
 
     def __init__(self, master):
         self.master = master
@@ -99,7 +100,7 @@ class PlayerEntryScreen:
 
             # Create submit button
             submit_button = tk.Button(self.master, text="Submit", command=self.submit)
-            submit_button.grid(row=21, column=3, padx=10, pady=10)
+            submit_button.grid(row=11, column=3, padx=10, pady=10)
 
             # Create error field
             self.error_text = tk.StringVar()
