@@ -5,7 +5,7 @@ Splash.drive()
 # Drive player entry screen
 from tkinter import Tk
 from src.Display.Entry import PlayerEntryScreen
-from src.Data.Game import LaserTagPlayerActionScreen
+from src.Display.Action import PlayerActionScreen
 
 
 def main():
@@ -19,7 +19,7 @@ def main():
     # call the drive() method of the instance to start the tkinter application
     #player_entry_screen.drive()
 
-    screen = LaserTagPlayerActionScreen(root, 'Red team', 'Green team')
+    screen = PlayerActionScreen(root, 'Red team', 'Green team')
     screen.pack()
     root.mainloop()
 
