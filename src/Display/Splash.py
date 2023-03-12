@@ -11,7 +11,7 @@ def drive():
     imgframe = Frame(screen, width=720, height=480)
     imgframe.pack()
     imgframe.place(anchor='nw')
-    img = ImageTk.PhotoImage(Image.open("../Resources/Splash480p.jpg"))
+    img = ImageTk.PhotoImage(Image.open("./Resources/Splash480p.jpg"))
     splash = Label(imgframe, image=img)
     splash.pack()
 
