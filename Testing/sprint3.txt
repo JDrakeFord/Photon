@@ -1,0 +1,9 @@
+Sprint 3 Testing:
+Program launches and splash screen plays
+Player entry screen shows. 
+When known player first/last is entered, a codename autofills
+New players first/last/codename show up in the database
+After hitting submit button, play action screen appears
+Timer counts down and screen shows 2 team names and the player names,
+along with total team score, and individual player score.
+Timer counts down to 0 and stops
