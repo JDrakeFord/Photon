@@ -58,10 +58,10 @@ class PlayerActionScreen(tk.Frame):
 
         # Create buttons for team actions
         self.team1_button = tk.Button(self, text='Team 1 Action', command=self.team1_action)
-        self.team1_button.grid(row=2, column=0, padx=10, pady=10)
+        # self.team1_button.grid(row=2, column=0, padx=10, pady=10)
 
         self.team2_button = tk.Button(self, text='Team 2 Action', command=self.team2_action)
-        self.team2_button.grid(row=2, column=2, padx=10, pady=10)
+        # self.team2_button.grid(row=2, column=2, padx=10, pady=10)
 
         # Create label for time remaining
         self.time_left_label = tk.Label(self.countdown_frame, text='Time left: 30', font=('Helvetica', 18))
