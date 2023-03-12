@@ -11,7 +11,7 @@ Prerequisites to run:
 This application creates and shows a splash screen and player entry screen for a laser tag video game. 
 When a player is entered into the player entry screen and the submit button is clicked, 
 that player entry is sent to and stored in our supabase database. If you try to change the codename for 
-a player already in the database, the program will refil
+a player already in the database, the program will refill.
 
 If a player already exists in the database, 
 our program will autofill the codename if given an existing first and last name.
