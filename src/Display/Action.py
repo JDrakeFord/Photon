@@ -1,5 +1,7 @@
 import tkinter as tk
 from random import random, choice
+import os
+from pygame import mixer
 
 from src.Data import Player
 from src.Util.Globals import *
@@ -26,6 +28,9 @@ class PlayerActionScreen(tk.Frame):
         self.team2_player_scores: list[tk.StringVar] = []
         for player in team2_players:
             self.team2_player_scores.append(tk.StringVar(self, player.score))
+
+        #Starts the music player
+        mixer.init()
 
         PlayerActionScreen.instances.append(self)
 
@@ -107,13 +112,34 @@ class PlayerActionScreen(tk.Frame):
         # Update time left label and decrease time_left variable by 1
         self.time_left_label.config(text=f'Time remaining before game start: {self.time_left}')
         self.time_left -= 1
-
         if self.time_left >= 0:
             self.after(1000, self.update_time_left)
+        else:
+            self.time_left = 360
+            self.update_time_left_game()
+            self.playTrack()
+            #start track
+        
+    def update_time_left_game(self):   
+        self.time_left_label.config(text=f'Time remaining before game end: {self.time_left}')
+        self.time_left -= 1
+        if self.time_left >= 0:
+            self.after(1000,self.update_time_left_game)
+        else:
+            mixer.music.stop()
+            self.time_left_label.config(text = f'GAME OVER!')
+            #Ends the music, changes text
 
     def drive(self):
         self.pack(anchor='w')
         self.mainloop()
+
+    def playTrack(self):
+        Tracklist = os.listdir("./Resources/Tracks/")
+        musicTrack = choice(Tracklist)
+        musicTrack = "./Resources/Tracks/" + musicTrack
+        mixer.music.load(musicTrack)
+        mixer.music.play()
 
     @classmethod
     def updateScores(cls):
