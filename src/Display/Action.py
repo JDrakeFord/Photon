@@ -150,6 +150,3 @@ class PlayerActionScreen(tk.Frame):
                 instance.team1_player_scores[i].set(instance.team1_players[i].score)
             for i in range(len(instance.team2_players)):
                 instance.team2_player_scores[i].set(instance.team2_players[i].score)
-
-
-## Test
