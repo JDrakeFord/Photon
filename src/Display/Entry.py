@@ -1,6 +1,5 @@
 import threading
 import tkinter as tk
-
 from src.Data.Player import Player
 from src.Display.Action import PlayerActionScreen
 from src.Util.Globals import *
