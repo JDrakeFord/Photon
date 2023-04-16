@@ -122,7 +122,7 @@ class PlayerActionScreen(tk.Frame):
         
     def update_time_left_game(self):
         min, sec = divmod(self.time_left, 60)
-        gameTimeLeft = "%02d:%02d" % (min, sec)
+        gameTimeLeft = "%2d:%02d" % (min, sec)
         self.time_left_label.config(text=f'Time remaining before game end: {gameTimeLeft}')
         self.time_left -= 1
         if self.time_left >= 0:
