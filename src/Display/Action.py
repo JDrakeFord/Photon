@@ -5,9 +5,7 @@ import socket
 from threading import Thread
 from time import sleep
 from tkinter import END, DISABLED
-
 from pygame import mixer
-
 from src.Data import Player
 from src.Data.Team import Team
 from src.Util import TimerUtil
@@ -33,8 +31,7 @@ class PlayerActionScreen(tk.Frame):
         for player in self.team2.players:
             self.team2_player_scores.append(tk.StringVar(self, player.score))
 
-        #Starts the music player
-        mixer.init()
+        mixer.init()     # Starts the music player
 
         PlayerActionScreen.instances.append(self)
 
@@ -107,8 +104,7 @@ class PlayerActionScreen(tk.Frame):
         else:
             self.time_left = 360
             self.update_time_left_game()
-            self.playTrack()
-            #start track
+            self.playTrack()    # start track
         
     def update_time_left_game(self):   
         self.time_left_label.config(text=f'Time remaining before game end: {TimerUtil.seconds_to_mm_ss(self.time_left)}')
@@ -117,8 +113,7 @@ class PlayerActionScreen(tk.Frame):
             self.after(1000,self.update_time_left_game)
         else:
             mixer.music.stop()
-            self.time_left_label.config(text = f'GAME OVER!')
-            #Ends the music, changes text
+            self.time_left_label.config(text = f'GAME OVER!')    # Ends the music, changes text
 
     def update_scores(self):
         self.team1_score.set(self.team1.score)
@@ -179,6 +174,3 @@ class PlayerActionScreen(tk.Frame):
         musicTrack = "./Resources/Tracks/" + musicTrack
         mixer.music.load(musicTrack)
         mixer.music.play()
-
-
-
