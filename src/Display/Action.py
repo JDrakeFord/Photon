@@ -7,8 +7,10 @@ from src.Data import Player
 from src.Util.Globals import *
 import src.Util.Database as db
 
+
 class PlayerActionScreen(tk.Frame):
     instances = []
+
     def __init__(self, team1_name, team2_name, team1_players: list[Player], team2_players: list[Player]):
         master = tk.Tk()
         super().__init__(master)
@@ -29,13 +31,10 @@ class PlayerActionScreen(tk.Frame):
         for player in team2_players:
             self.team2_player_scores.append(tk.StringVar(self, player.score))
 
-        #Starts the music player
+        # Starts the music Player
         mixer.init()
-
         PlayerActionScreen.instances.append(self)
-
         self.create_widgets()
-
         self.time_left = 30
         self.update_time_left()
 
@@ -79,7 +78,8 @@ class PlayerActionScreen(tk.Frame):
         for i in self.team1_players:
             player_label = tk.Label(self.team1_frame, text=i.codeName, font=('Helvetica', 12), fg=red_color)
             player_label.grid(row=4 + count, column=0)
-            player_score_label = tk.Label(self.team1_frame, textvariable=self.team1_player_scores[count], font=('Helvetica', 12), fg=red_color)
+            player_score_label = tk.Label(self.team1_frame, textvariable=self.team1_player_scores[count],
+                                          font=('Helvetica', 12), fg=red_color)
             player_score_label.grid(row=4 + count, column=1)
             count += 1
 
@@ -88,7 +88,8 @@ class PlayerActionScreen(tk.Frame):
         for i in self.team2_players:
             player_label = tk.Label(self.team2_frame, text=i.codeName, font=('Helvetica', 12), fg=green_color)
             player_label.grid(row=4 + count, column=2)
-            player_score_label = tk.Label(self.team2_frame, textvariable=self.team2_player_scores[count], font=('Helvetica', 12), fg=green_color)
+            player_score_label = tk.Label(self.team2_frame, textvariable=self.team2_player_scores[count],
+                                          font=('Helvetica', 12), fg=green_color)
             player_score_label.grid(row=4 + count, column=3)
             count += 1
 
@@ -117,20 +118,18 @@ class PlayerActionScreen(tk.Frame):
         else:
             self.time_left = 360
             self.update_time_left_game()
-            self.playTrack()
-            #start track
-        
+            self.playTrack()  # start track
+
     def update_time_left_game(self):
         min, sec = divmod(self.time_left, 60)
         gameTimeLeft = "%2d:%02d" % (min, sec)
         self.time_left_label.config(text=f'Time remaining before game end: {gameTimeLeft}')
         self.time_left -= 1
         if self.time_left >= 0:
-            self.after(1000,self.update_time_left_game)
+            self.after(1000, self.update_time_left_game)
         else:
             mixer.music.stop()
-            self.time_left_label.config(text = f'GAME OVER!')
-            #Ends the music, changes text
+            self.time_left_label.config(text=f'GAME OVER!')   # Ends the music, changes text
 
     def drive(self):
         self.pack(anchor='w')
