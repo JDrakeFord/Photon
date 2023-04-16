@@ -3,11 +3,11 @@ from PIL import ImageTk, Image
 
 
 def drive():
-    # Creates the screen and sets the size
+    # Creates splash screen and sets size
     screen = Tk()
     screen.geometry("720x480")
 
-    # Puts the Image onto the screen
+    # Displays Splash image
     imgframe = Frame(screen, width=720, height=480)
     imgframe.pack()
     imgframe.place(anchor='nw')
@@ -15,10 +15,9 @@ def drive():
     splash = Label(imgframe, image=img)
     splash.pack()
 
-    # Function to delete the splashscreen
+    # Deletes Splash
     def deleteSplash():
         screen.destroy()
-
     screen.after(1250, deleteSplash)
 
     mainloop()
