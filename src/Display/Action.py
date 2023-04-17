@@ -49,27 +49,28 @@ class PlayerActionScreen(tk.Frame):
         self.event_frame = tk.Frame(self)
 
         # Create labels for team names and scores
-        self.team1_label = tk.Label(self.team1_frame, text="Red", font=('Helvetica', 18), fg=red_color)
-        self.team1_label.grid(row=0, column=0)
 
         self.team2_label = tk.Label(self.team2_frame, text="Green", font=('Helvetica', 18), fg=green_color)
         self.team2_label.grid(row=0, column=2, pady=(20, 0))
 
-        self.team1_score_label = tk.Label(self.team1_frame, textvariable=self.team1_score, font=('Helvetica', 25))
-        self.team1_score_label.grid(row=1, column=0)
+        self.team1_label = tk.Label(self.team1_frame, text="Red", font=('Helvetica', 18), fg=red_color)
+        self.team1_label.grid(row=0, column=0)
 
         self.team2_score_label = tk.Label(self.team2_frame, textvariable=self.team2_score, font=('Helvetica', 25))
         self.team2_score_label.grid(row=1, column=2)
+
+        self.team1_score_label = tk.Label(self.team1_frame, textvariable=self.team1_score, font=('Helvetica', 25))
+        self.team1_score_label.grid(row=1, column=0)
 
         self.event_text = tk.Text(self.event_frame, font=('Helvetica', 18), state=DISABLED)
         self.event_text.grid(row=0, column=0)
 
         self.high_score_label = self.team1_score_label
 
-        self.team1_frame.grid(row=1, column=0, padx=200)
-        self.team2_frame.grid(row=1, column=2, padx=200)
         self.countdown_frame.grid(row=0, column=0, columnspan=3)
         self.event_frame.grid(row=2, column=0, columnspan=3)
+        self.team1_frame.grid(row=1, column=0, padx=200)
+        self.team2_frame.grid(row=1, column=2, padx=200)
 
 
         # Create label for time remaining
@@ -86,6 +87,7 @@ class PlayerActionScreen(tk.Frame):
             player_score_label.grid(row=4 + count, column=1)
             count += 1
 
+        # Create labels for team players
         count = 0
         self.team2_player_labels = []
         for i in self.team2.players:
