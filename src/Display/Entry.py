@@ -21,8 +21,8 @@ class PlayerEntryScreen:
 
     def submit(self):
         self.success_text.set("")
-        team_1_players = []
         team_2_players = []
+        team_1_players = []
         for i in range(0, 40):
             if (not (self.first_name_entries[i].get() and self.last_name_entries[i].get()
                      and self.code_name_entries[i].get())) \
@@ -56,15 +56,15 @@ class PlayerEntryScreen:
         self.master.title("Player Entry")
 
         # Create player name label and entry widget
-        self.team_label1 = tk.Label(self.master, text="Red Team", fg=red_color)
-        self.team_label1.grid(row=0, column=0, padx=10, pady=10)
         self.team_label2 = tk.Label(self.master, text="Green Team", fg=green_color)
         self.team_label2.grid(row=0, column=6, padx=10, pady=10)
+        self.team_label1 = tk.Label(self.master, text="Red Team", fg=red_color)
+        self.team_label1.grid(row=0, column=0, padx=10, pady=10)
 
-        self.name_labels = []
         self.first_name_entries = []
         self.last_name_entries = []
         self.code_name_entries = []
+        self.name_labels = []
 
         for i in range(20):
             i_str = str(i + 1)
@@ -85,9 +85,10 @@ class PlayerEntryScreen:
             code_name_entry1.bind("<FocusOut>", self.checkCodename)
 
             self.name_labels.append(name_label1)
-            self.first_name_entries.append(first_name_entry1)
             self.last_name_entries.append(last_name_entry1)
             self.code_name_entries.append(code_name_entry1)
+            self.first_name_entries.append(first_name_entry1)
+
 
         for i in range(20):
             i_str = str(i + 1)
@@ -96,21 +97,22 @@ class PlayerEntryScreen:
             first_name_entry2 = tk.Entry(self.master, fg=green_color)
             first_name_entry2.grid(row=i + 1, column=7, padx=5, pady=5)
             first_name_entry2.bind("<FocusOut>", self.checkCodename)
-            last_name_label2 = tk.Label(self.master, text="Last Name:")
-            last_name_label2.grid(row=i + 1, column=8, padx=5, pady=5)
-            last_name_entry2 = tk.Entry(self.master, fg=green_color)
-            last_name_entry2.grid(row=i + 1, column=9, padx=5, pady=5)
-            last_name_entry2.bind("<FocusOut>", self.checkCodename)
             code_name_label2 = tk.Label(self.master, text=" Code Name:")
             code_name_label2.grid(row=i + 1, column=10, padx=5, pady=5)
             code_name_entry2 = tk.Entry(self.master, fg=green_color)
             code_name_entry2.grid(row=i + 1, column=11, padx=5, pady=5)
             code_name_entry2.bind("<FocusOut>", self.checkCodename)
+            last_name_label2 = tk.Label(self.master, text="Last Name:")
+            last_name_label2.grid(row=i + 1, column=8, padx=5, pady=5)
+            last_name_entry2 = tk.Entry(self.master, fg=green_color)
+            last_name_entry2.grid(row=i + 1, column=9, padx=5, pady=5)
+            last_name_entry2.bind("<FocusOut>", self.checkCodename)
 
-            self.name_labels.append(name_label2)
-            self.first_name_entries.append(first_name_entry2)
+
             self.last_name_entries.append(last_name_entry2)
             self.code_name_entries.append(code_name_entry2)
+            self.name_labels.append(name_label2)
+            self.first_name_entries.append(first_name_entry2)
 
             # Create submit button
             submit_button = tk.Button(self.master, text="Submit", command=self.submit)
