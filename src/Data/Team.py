@@ -8,12 +8,14 @@ class Team:
         self.players = players
         self.score = 0
 
+    # Returns an id for each player
     def hasPlayer(self, id):
         for p in self.players:
             if p.codeName == id:
                 return True
         return False
 
+    # Update player score if called
     def playerScored(self, id):
         self.score = self.score + 10
         for p in self.players:

@@ -3,7 +3,6 @@ from random import random, choice
 import os
 import socket
 from threading import Thread
-from time import sleep
 from tkinter import END, DISABLED
 from pygame import mixer
 from src.Data import Player
@@ -74,7 +73,7 @@ class PlayerActionScreen(tk.Frame):
 
 
         # Create label for time remaining
-        self.time_left_label = tk.Label(self.countdown_frame, text='Time left: 30', font=('Helvetica', 18))
+        self.time_left_label = tk.Label(self.countdown_frame, font=('Helvetica', 18))
         self.time_left_label.grid(row=0, column=0)
 
         # Create labels for team players
@@ -104,11 +103,11 @@ class PlayerActionScreen(tk.Frame):
         if self.time_left >= 0:
             self.after(1000, self.update_time_left)
         else:
-            self.time_left = 360
+            self.time_left = 360    # sets time to 360 seconds, or 6 minutes (unformatted). Value will later be formatted and stored as another variable.
             self.update_time_left_game()
             self.playTrack()    # start track
         
-    def update_time_left_game(self):   
+    def update_time_left_game(self):
         self.time_left_label.config(text=f'Time remaining before game end: {TimerUtil.seconds_to_mm_ss(self.time_left)}')
         self.time_left -= 1
         if self.time_left >= 0:
